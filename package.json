@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/VHromyk/TG_Bot/issues"
   },
-  "homepage": "https://github.com/VHromyk/TG_Bot#readme"
+  "homepage": "https://github.com/VHromyk/TG_Bot#readme",
+  "dependencies": {
+    "telegraf": "^4.4.2"
+  }
 }
