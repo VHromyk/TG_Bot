@@ -1,9 +1,7 @@
 require('dotenv').config()
-// const { Telegraf } = require('telegraf')
 const { Composer } = require('micro-bot')
 const axios = require('axios')
 
-// const bot = new Telegraf(process.env.BOT_TOKEN)
 const bot = new Composer()
 
 bot.start(ctx => {
