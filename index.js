@@ -40,7 +40,7 @@ const getCurrency = async () =>
 bot.command('show_currency', async ctx => {
 	const result = await getCurrency()
 
-	bot.telegram.sendMessage(ctx.chat.id, result)
+	// bot.telegram.sendMessage(ctx.chat.id, result)
 })
 
 // bot.launch()
