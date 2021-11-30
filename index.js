@@ -1,9 +1,9 @@
-import dotenv from 'dotenv'
-dotenv.config()
-import { Telegraf } from 'telegraf'
-import axios from 'axios'
+require('dotenv').config()
+// const { Telegraf } = require('telegraf')
+const { Composer } = require('micro-bot')
+const axios = require('axios')
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Composer(process.env.BOT_TOKEN)
 
 bot.start(ctx => {
 	console.log(ctx.chat)
@@ -43,4 +43,4 @@ bot.command('show_currency', async ctx => {
 	bot.telegram.sendMessage(ctx.chat.id, result)
 })
 
-bot.launch()
+module.exports = bot
