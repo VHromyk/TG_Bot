@@ -3,7 +3,8 @@ require('dotenv').config()
 const { Composer } = require('micro-bot')
 const axios = require('axios')
 
-const bot = new Composer(process.env.BOT_TOKEN)
+// const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Composer()
 
 bot.start(ctx => {
 	console.log(ctx.chat)
@@ -43,4 +44,8 @@ bot.command('show_currency', async ctx => {
 	bot.telegram.sendMessage(ctx.chat.id, result)
 })
 
+// bot.launch()
 module.exports = bot
+
+// gentle-depths-42343
+// https://gentle-depths-42343.herokuapp.com/
