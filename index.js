@@ -6,7 +6,6 @@ const axios = require('axios')
 const bot = new Composer()
 
 bot.start(ctx => {
-	console.log(ctx.chat)
 	ctx.reply(`Вітаю Вас ${ctx.message.from.first_name}!
 	В цьому боті Ви можете взнати курс іноземної валюти.
 	Для отримання курсу натисніть /show_currency`)
@@ -31,7 +30,7 @@ const getCurrency = async () =>
 		.then(arr =>
 			arr.map(
 				el =>
-					`Дата: ${el.exchangedate}, 
+					`Дата: ${el.exchangedate},
 					 Валюта: ${el.cc}, Курс: ${shortCurrency(el.rate)}`
 			)
 		)
@@ -39,8 +38,11 @@ const getCurrency = async () =>
 
 bot.command('show_currency', async ctx => {
 	const result = await getCurrency()
+	// console.log(result)
+	// console.log(ctx.chat.id)
+	// console.log(telegram)
 
-	// bot.telegram.sendMessage(ctx.chat.id, result)
+	return ctx.telegram.sendMessage(ctx.chat.id, result)
 })
 
 // bot.launch()
