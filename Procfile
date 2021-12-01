@@ -1,1 +1,1 @@
-web: micro-bot -p 3000
+web: micro-bot -p $PORT
