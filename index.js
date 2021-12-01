@@ -21,29 +21,29 @@ function shortCurrency(el) {
 	return el.toFixed(2)
 }
 
-// const getCurrency = async () =>
-// 	await axios(
-// 		'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json'
-// 	)
-// 		.then(response => response.data)
-// 		.then(arr => arr.filter(el => filterArrByCurrency(el.cc)))
-// 		.then(arr =>
-// 			arr.map(
-// 				el =>
-// 					`Дата: ${el.exchangedate},
-// 					 Валюта: ${el.cc}, Курс: ${shortCurrency(el.rate)}`
-// 			)
-// 		)
-// 		.then(arr => arr.join('\n'))
+const getCurrency = async () =>
+	await axios(
+		'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json'
+	)
+		.then(response => response.data)
+		.then(arr => arr.filter(el => filterArrByCurrency(el.cc)))
+		.then(arr =>
+			arr.map(
+				el =>
+					`Дата: ${el.exchangedate},
+					 Валюта: ${el.cc}, Курс: ${shortCurrency(el.rate)}`
+			)
+		)
+		.then(arr => arr.join('\n'))
 
-// bot.command('show_currency', async ctx => {
-// 	const result = await getCurrency()
-// console.log(result)
-// console.log(ctx.chat.id)
-// console.log(telegram)
+bot.command('show_currency', async ctx => {
+	const result = await getCurrency()
+	console.log(result)
+	console.log(ctx.chat.id)
+	console.log(telegram)
 
-// 	return ctx.telegram.sendMessage(ctx.chat.id, result)
-// })
+	return ctx.telegram.sendMessage(ctx.chat.id, result)
+})
 
 // bot.launch()
 module.exports = bot
